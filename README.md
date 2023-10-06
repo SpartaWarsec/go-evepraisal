@@ -23,6 +23,37 @@ The following was tested on Ubuntu Server 18.10
   $ docker-compose up
 ```
 
+## Local install Instructions
+- Install golang 1.21.2
+```
+  ~$ curl https://dl.google.com/go/go1.21.2.linux-amd64.tar.gz | tar xz
+  ~$ sudo mv go /usr/local
+  ~$ echo 'export GOROOT=/usr/local/go' >>~/.profile
+  ~$ echo 'export GOPATH=$HOME/go' >>~/.profile
+  ~$ echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >>~/.profile
+  ~$ echo 'export GO111MODULE=on' >>~/.profile
+  ~$ source ~/.profile
+```
+- Install build requirements
+```
+  ~$ sudo apt install git musl-dev build-essential
+```
+- Download and build evepraisal
+```
+  ~$ adduser -disabled-login evepraisal
+  ~$ mkdir -p $GOPATH/src/github.com/evepraisal/go-evepraisal
+  ~$ cd $GOPATH/src/github.com/evepraisal/go-evepraisal
+  ~/go/src/github.com/evepraisal/go-evepraisal$ git clone https://github.com/evepraisal/go-evepraisal.git .
+  ~/go/src/github.com/evepraisal/go-evepraisal$ make setup
+  ~/go/src/github.com/evepraisal/go-evepraisal$ make build
+  ~/go/src/github.com/evepraisal/go-evepraisal$ make deploy-prod
+  ~/go/src/github.com/evepraisal/go-evepraisal$ cd
+  ~$ rm -rf $GOPATH
+  ~$ apt purge build-dependencies && apt autoremove
+
+```
+
+
 ## Instructions (development)
 The following was tested on Ubuntu Server 18.10
 - Install golang 1.11
