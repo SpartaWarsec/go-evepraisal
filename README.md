@@ -27,7 +27,7 @@ The following was tested on Ubuntu Server 18.10
 The following was tested on Ubuntu Server 18.10
 - Install golang 1.11
 ```
-  ~$ curl https://dl.google.com/go/go1.11.10.linux-amd64.tar.gz | tar xz
+  ~$ curl https://dl.google.com/go/go1.21.2.linux-amd64.tar.gz | tar xz
   ~$ sudo mv go /usr/local
   ~$ echo 'export GOROOT=/usr/local/go' >>~/.profile
   ~$ echo 'export GOPATH=$HOME/go' >>~/.profile
