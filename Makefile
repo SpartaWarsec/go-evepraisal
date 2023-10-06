@@ -72,13 +72,13 @@ dist:
 
 deploy-prod: dist
 	mkdir -p /usr/local/evepraisal
-        mkdir -p /usr/local/evepraisal/db
-        cp -f target/evepraisal-linux-amd64 /usr/local/bin/evepraisal
-        cp -n evepraisal.toml /usr/local/evepraisal/evepraisal.toml
-        cp -f  etc/systemd/system/evepraisal.service /etc/systemd/system/evepraisal.service
-        chown -R evepraisal:evepraisal /usr/local/evepraisal
-        systemctl daemon-reload
-        systemctl enable evepraisal
-        systemctl restart evepraisal
+	mkdir -p /usr/local/evepraisal/db
+	cp -f target/evepraisal-linux-amd64 /usr/local/bin/evepraisal
+	cp -n evepraisal.toml /usr/local/evepraisal/evepraisal.toml
+	cp -f  etc/systemd/system/evepraisal.service /etc/systemd/system/evepraisal.service
+	chown -R evepraisal:evepraisal /usr/local/evepraisal
+	systemctl daemon-reload
+	systemctl enable evepraisal
+	systemctl restart evepraisal
 
 
